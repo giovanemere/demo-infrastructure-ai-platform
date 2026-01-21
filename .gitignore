@@ -40,7 +40,6 @@ venv/
 
 # Git repositories (submodules) - Excluir completamente
 backstage-idp/
-catalog-repo/
 infra-ai-agent/
 templates-repo/
 

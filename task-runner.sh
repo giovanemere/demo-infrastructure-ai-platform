@@ -464,7 +464,7 @@ restart_ai_agent() {
     
     cd agent
     log_info "Iniciando AI Agent..."
-    nohup python main.py > ../ai-agent.log 2>&1 &
+    source ../venv/bin/activate && nohup uvicorn main:app --host 0.0.0.0 --port 8000 --reload > ../ai-agent.log 2>&1 &
     local new_pid=$!
     echo $new_pid > ../ai-agent.pid
     
@@ -530,7 +530,7 @@ start_ai_agent() {
     fi
     
     cd agent
-    nohup python main.py > ../ai-agent.log 2>&1 &
+    source ../venv/bin/activate && nohup uvicorn main:app --host 0.0.0.0 --port 8000 --reload > ../ai-agent.log 2>&1 &
     local pid=$!
     echo $pid > ../ai-agent.pid
     log_success "AI Agent iniciado (PID: $pid)"

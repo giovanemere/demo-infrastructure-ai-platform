@@ -2,9 +2,40 @@
 
 **Análisis automático de arquitecturas AWS con IA → Catálogo Backstage**
 
-Plataforma que analiza descripciones de texto e imágenes de arquitecturas AWS usando Gemini AI, genera templates de Backstage automáticamente y los integra con GitHub para crear proyectos completos.
+Plataforma completa que analiza descripciones de texto e imágenes de arquitecturas AWS usando Gemini AI, genera templates de Backstage automáticamente y los integra con GitHub para crear proyectos completos.
 
-## 🚀 Replicación del Proyecto
+## 🏗️ Arquitectura del Sistema
+
+```
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   Frontend      │    │    AI Agent      │    │   Gemini AI     │
+│   (Backstage)   │◄──►│   (FastAPI)      │◄──►│   (Google)      │
+│   :3000         │    │   :8000          │    │                 │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+         │                       │                       │
+         │                       ▼                       │
+         │              ┌──────────────────┐             │
+         │              │   PostgreSQL     │             │
+         │              │   :5432          │             │
+         │              └──────────────────┘             │
+         │                       │                       │
+         ▼                       ▼                       ▼
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   GitHub        │    │     MinIO        │    │   Templates     │
+│   (Repos)       │    │   (Storage)      │    │   (Generated)   │
+│                 │    │   :9000          │    │                 │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+```
+
+## 🚀 Repositorios del Proyecto
+
+| Repositorio | Propósito | GitHub |
+|-------------|-----------|---------|
+| **infrastructure-ai-platform** | Workspace principal y orquestación | [demo-infrastructure-ai-platform](https://github.com/giovanemere/demo-infrastructure-ai-platform) |
+| **infra-ai-agent** | AI Agent (FastAPI + Gemini) | [demo-infra-ai-agent](https://github.com/giovanemere/demo-infra-ai-agent) |
+| **backstage-idp** | Backstage IDP personalizado | [demo-infra-backstage](https://github.com/giovanemere/demo-infra-backstage) |
+| **templates-repo** | Templates generados por IA | [demo-infra-ai-agent-template-idp](https://github.com/giovanemere/demo-infra-ai-agent-template-idp) |
+| **minio-infrastructure** | Configuración MinIO | [demo-infra-minio](https://github.com/giovanemere/demo-infra-minio) |
 
 ### 📋 Prerrequisitos del Sistema
 
